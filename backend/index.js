@@ -16,15 +16,11 @@ app.use(express.json({ limit: "50mb" }));
 app.use("/api/v1/post", postRoutes);
 app.use("/api/v1/dalle", dalleRoutes);
 
-app.get("/", async (req, res) => {
-  res.send("Hello From Backend");
-});
-
 const startServer = () => {
   try {
     connectDB(process.env.MONGO_URI);
     app.listen(8080, () => {
-      console.log("server is running on port http://localhost:8080");
+      console.log("server is running");
     });
   } catch (error) {
     console.log(error);
